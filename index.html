@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- compatible across browsers -->
     <meta charset="UTF-8">
+    <!-- Link makes compatable different screens -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <!--  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- google API Prototype -->
+    <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
+
+    <!-- Link to our css and image files -->
+       <link rel="stylesheet" href="css/style.css"> 
+       <link rel="stylesheet" href="Images/">
 </head>
 <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -13,7 +25,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a class="navbar-brand" href="#">Omega Remix</a>
+          <a class="navbar-brand" href="#"><kbd>Omega Remix<kbd></a><!--added background collor to omega remix -->
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -34,5 +46,136 @@
           </form>
         </div>
       </nav>
+
+      <!-- Where John Bassili's code starts: Format containers and display windows in main page area to show videos and artist description -->
+      <br>
+
+      <div class="jumbotron Omega Remix text-center">
+          <h1><kbd>Omega Remix<kbd></h1>
+           <h4>The hottest search engine to find the artists and music you love!</h4> 
+      </div>
+
+<!-- JOHN BEGIN OF ACCORDIAN -->
+      <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Artist #1
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body"><img class="img-responsive" src="../cds.jpg" alt="Artist Image" width="460" height="345"><br>
+        PULL CONTENT ON ARTIST HERE!
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Artis #2
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body"><img class="img-responsive" src="****.jpg" alt="Artist Image" width="460" height="345"><br> 
+        PULL CONTENT ON ARTIST HERE!
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Artist #3
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body"><img class="img-responsive" src="****.jpg" alt="Artist Image" width="460" height="345"><br>
+        PULL CONTENT ON ARTIST HERE!
+      </div>
+    </div>
+  </div>
+<div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Artist #4
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body"><img class="img-responsive" src="****.jpg" alt="Artist Image" width="460" height="345"><br>
+        PULL CONTENT ON ARTIST HERE!
+      </div>
+    </div>
+  </div>
+<div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Artist #5
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+      <div class="card-body"><img class="img-responsive" src="index/Images/cds.jpg" alt="Artist Image" width="460" height="345"><br>
+        PULL CONTENT ON ARTIST HERE!
+      </div>
+    </div>
+  </div>
+<!-- JOHN:END OF ACCORDIAN  -->
+    <br>
+    <br>
+      <!-- Column for Artists images -->
+      <div class="container text-center">
+         <div class="row">
+            <div class="col-lg-6 bg-light">
+            <h3>Artist images</h3>
+            <img class="img-responsive" src="****.jpg" alt="Artist Image" width="460" height="345"> 
+         </div>
+        <!-- column for content about artist -->
+         <div class="col-lg-6 bg-light">
+            <h3>About artist</h3>
+            <p>Text</p>
+            <p></p>
+        </div>
+      </div>
+    </div>
+
+      <br>
+      <br>
+      
+    <!-- Columns for Artist videos -->
+    <div class="container">
+        <div class="col-lg-6 bg-light">
+            <h3>Artist videos</h3>        
+              <div class="embed-responsive embed-responsive-4by3">
+               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+              </div>
+        </div>
+      </div>
+
+    
+
+  <!-- Latest jquery link -->    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!--BOOTSTRAP 4.0 LINKS  -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- BOOTSTRAP 3.0 AND 4.0 JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </body>
 </html>
+
+
+
+
+  
