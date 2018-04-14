@@ -8,7 +8,6 @@ var searchedArtist;
 var similarArtistsNames = [];
 
 var JQr = $.noConflict();
-
 //JEFF End Initial Variables
 //Last.FM ajax call for similar artist
 //JEFF prototype things; work in progress
@@ -20,7 +19,7 @@ var  SimilarArtist = Class.create({
         this.videos = videos;
     },
     print: function (){
-    	console.log(this);
+        console.log(this);
     },
 });
 var Artist = Class.create({
@@ -29,7 +28,6 @@ var Artist = Class.create({
         this.similarArtists = similarArtists;
     },
 });
-
 //JEFF: End Prototype things
 //  JESSICA: Beginning of onclick Event
     $(document).on('click', '#submitButton', function(){
@@ -50,18 +48,16 @@ var Artist = Class.create({
             method: "GET",
         }).then(function (response) {
             console.log(response);
-
            similarArtistsNames = getSimilarArtists(response.artist.similar.artist);
 
            getSimilarArtistElements(similarArtistsNames[0]);
+           renderAccordion(similarArtistsNames);
         });
     });
     //JEFF: END LASTFM AJAX CALL
-
-
 function getSimilarArtistElements(artist){
-	JQr.ajax({
-		 url: "http://ws.audioscrobbler.com/2.0/?",
+    JQr.ajax({
+         url: "http://ws.audioscrobbler.com/2.0/?",
          data: {
                 method: "artist.getinfo",
                 artist: artist,
@@ -70,7 +66,7 @@ function getSimilarArtistElements(artist){
          },
          method: "GET",
         }).then(function (response) {
-        var lastFMResponse = response;        	
+        var lastFMResponse = response;          
         JQr.ajax({
             url: 'https://www.googleapis.com/youtube/v3/search?',
             data: {
@@ -86,15 +82,18 @@ function getSimilarArtistElements(artist){
         }).then(function (response) {
             console.log(response);
 
+
         var simArtist = new SimilarArtist(artist, lastFMResponse.artist.bio.summary, getArtistImages(lastFMResponse), getVideoIds(response));
         console.log(simArtist);
         simArtist.print();
         console.log("KILROY WAS HERE");
 
+
 //         var testVid = JQr("<iframe>");
 // testVid.addClass("embed-responsive-item");
 // testVid.attr("src","https://www.youtube.com/embed/" + simArtist.videos[0]);
 // JQr("#collapseFive").append(testVid);
+
 
 	});
 });
@@ -117,6 +116,7 @@ function getSimilarArtistElements(artist){
 
 
 
+
     //JEFF: MISC FUNCTIONS
     function getSimilarArtists(artistsArray) {
         artistsReturned = [];
@@ -132,15 +132,53 @@ function getSimilarArtistElements(artist){
     //JEFF: END MISC FUNCTIONS
     //JEFF: YOUTUBE API FOR IDS
     function getVideoIds(response) {
-    	var videoids = [];
+        var videoids = [];
             for(var i=0;i<numYouTubeResultsPerArtist;i++){
-            	videoids.push(response.items[i].id.videoId);
+                videoids.push(response.items[i].id.videoId);
             }
             console.log(videoids);
             return videoids;
         };
 
 
+  //  RENDER ACCORDION AS A FUNCTION 
+    function renderAccordion(similarArtists){
+
+      var newResultsDiv = $("<div>");
+    
+    newResultsDiv.addClass("accordion");
+
+    // create a loop through each card 60-74 TO LOOP THROUGH EACH OF THE LINES IN FIRST DIV, THEN REPEAT THIS PROCESS FOR EACH DIV
+
+    for (var i = 0; i < similarArtists.length; i++) {
+        similarArtists[i]
 
     
+
+    var newCard = $("<div>");
+    newCard.addClass("card");
+    newResultsDiv.append(newCard);
+
+    var newcardheader = $("<div>");
+    newcardheader.addClass("card-header");
+    newcardheader.attr("id","heading"+i);
+    newCard.append(newcardheader);
+
+    var h5 = $("<h5>");
+    newCard.append(h5);
+
+    var button = $("<button>");
+    button.addClass("btn btn-link");
+    button.attr("data-target", "collapse"+i)
+    h5.append(button);
+
+    var collapseOne = $("<div>");
+    collapseOne.addClass("collapseOne");
+    collapseOne.attr("id", "accordion"+i);
+    button.append(collapseOne);
+
+
+}
+    JQr("#searchResults").append(newResultsDiv);
 //JEFF: END YOUTUBE API
+
