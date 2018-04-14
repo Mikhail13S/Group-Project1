@@ -1,61 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- compatible across browsers -->
-    <meta charset="UTF-8">
-    <!-- Link makes compatable different screens -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--  -->
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <!--  -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- google API Prototype -->
-    <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
-
-    <!-- Link to our css and image files -->
-       <link rel="stylesheet" href="css/style.css"> 
-       <link rel="stylesheet" href="Images/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="Assets/css/style.css">
+ 
+ 
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a class="navbar-brand" href="#"><kbd>Omega Remix<kbd></a><!--added background collor to omega remix -->
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Make a Playlist!</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Genre</a>
-              </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Band/Artist</button>
-          </form>
-        </div>
-      </nav>
-
-      <!-- Where John Bassili's code starts: Format containers and display windows in main page area to show videos and artist description -->
-      <br>
-
-      <div class="jumbotron Omega Remix text-center">
-          <h1><kbd>Omega Remix<kbd></h1>
-           <h4>The hottest search engine to find the artists and music you love!</h4> 
-      </div>
-
-<!-- JOHN BEGIN OF ACCORDIAN -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="#">Omega Remix</a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Make a Playlist!</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" id="userSearch" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" id="submitButton" type="button">Search Band/Artist</button>
+  </form>
+  <!--START DELETE FOR JEFF'S CODE HERE-->
+  <div class="jumbotron Omega Remix text-center">
+    <h1>
+      <kbd>Omega Remix</kbd>
+    </h1>
+    <h4>The hottest search engine to find the artists and music you love!</h4>
+  </div>
+  <!-- JOHN BEGIN OF ACCORDIAN -->
+  <div id= "searchResults" >
       <div id="accordion">
   <div class="card">
     <div class="card-header" id="headingOne">
@@ -65,9 +56,8 @@
         </button>
       </h5>
     </div>
-
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body"><img class="img-responsive" src="../cds.jpg" alt="Artist Image" width="460" height="345"><br>
+      <div class="card-body"><img class="img-responsive" src="../Images/cds.jpg" alt="Artist Image" width="460" height="345"><br>
         PULL CONTENT ON ARTIST HERE!
       </div>
     </div>
@@ -128,54 +118,44 @@
       </div>
     </div>
   </div>
+  </div>
 <!-- JOHN:END OF ACCORDIAN  -->
-    <br>
-    <br>
-      <!-- Column for Artists images -->
-      <div class="container text-center">
-         <div class="row">
-            <div class="col-lg-6 bg-light">
-            <h3>Artist images</h3>
-            <img class="img-responsive" src="****.jpg" alt="Artist Image" width="460" height="345"> 
-         </div>
-        <!-- column for content about artist -->
-         <div class="col-lg-6 bg-light">
-            <h3>About artist</h3>
-            <p>Text</p>
-            <p></p>
+  <!-- Column for Artists images -->
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-lg-6 bg-light">
+        <h3>Artist images</h3>
+        <!-- <img class="img-responsive" src="****.jpg" alt="Artist Image" width="460" height="345">  -->
+      </div>
+      <!-- column for content about artist -->
+      <div class="col-lg-6 bg-light">
+        <h3>About artist</h3>
+        <p>Text</p>
+        <p></p>
+      </div>
+    </div>
+    <!-- </div> -->
+    <!-- Columns for Artist videos -->
+    <!-- <div class="container"> -->
+    <div class="row">
+      <div class="col-lg-6 bg-light">
+        <h3>Artist videos</h3>
+        <div class="embed-responsive embed-responsive-4by3">
+          <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe> -->
         </div>
       </div>
     </div>
-
-      <br>
-      <br>
-      
-    <!-- Columns for Artist videos -->
-    <div class="container">
-        <div class="col-lg-6 bg-light">
-            <h3>Artist videos</h3>        
-              <div class="embed-responsive embed-responsive-4by3">
-               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-              </div>
-        </div>
-      </div>
-
-    
-
-  <!-- Latest jquery link -->    
+  </div>
+         <!-- Latest jquery link -->    
+  <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!--BOOTSTRAP 4.0 LINKS  -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+ <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ <script src="Assets/Javascript/app.js"></script>
   <!-- BOOTSTRAP 3.0 AND 4.0 JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+  <!--END DELETE oF JEFF'S -->
 </body>
 </html>
-
-
-
-
-  
