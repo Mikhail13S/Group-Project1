@@ -6,15 +6,16 @@ var artist = "Grimes";
 var artistsReturned = [];
 var searchedArtist;
 var similarArtistsNames = [];
+
 var JQr = $.noConflict();
 //JEFF End Initial Variables
 //Last.FM ajax call for similar artist
 //JEFF prototype things; work in progress
 var  SimilarArtist = Class.create({
-    initialize: function (name, bio, images, videos){
+    initialize: function (name, bio, image, videos){
         this.name = name;
         this.bio = bio;
-        this.images = images;
+        this.image = image;
         this.videos = videos;
     },
     print: function (){
@@ -39,6 +40,7 @@ var Artist = Class.create({
             url: "http://ws.audioscrobbler.com/2.0/?",
             data: {
                 method: "artist.getinfo",
+                autocorrect: 1;
                 artist: artist,
                 api_key: lastfmAPIKey,
                 format: "json",
@@ -47,6 +49,7 @@ var Artist = Class.create({
         }).then(function (response) {
             console.log(response);
            similarArtistsNames = getSimilarArtists(response.artist.similar.artist);
+
            getSimilarArtistElements(similarArtistsNames[0]);
            renderAccordion(similarArtistsNames);
         });
@@ -78,24 +81,42 @@ function getSimilarArtistElements(artist){
             method: 'GET',
         }).then(function (response) {
             console.log(response);
-        var simArtist = new SimilarArtist(artist, lastFMResponse.artist.bio.content, getArtistImages(lastFMResponse), getVideoIds(response));
+
+
+        var simArtist = new SimilarArtist(artist, lastFMResponse.artist.bio.summary, getArtistImages(lastFMResponse), getVideoIds(response));
         console.log(simArtist);
         simArtist.print();
         console.log("KILROY WAS HERE");
+
+
 //         var testVid = JQr("<iframe>");
 // testVid.addClass("embed-responsive-item");
 // testVid.attr("src","https://www.youtube.com/embed/" + simArtist.videos[0]);
 // JQr("#collapseFive").append(testVid);
-    });
+
+
+	});
 });
     }
-    function getArtistImages(response){
-        var artistImages = []
-        for(var i=0;i<5;i++){
-            artistImages.push(response.artist.image[i]["#text"]);
-        }
-        return artistImages;
-    }
+
+
+
+
+
+
+
+	function getArtistImages(response){
+		var artistImages = []
+		for(var i=0;i<5;i++){
+			artistImages.push(response.artist.image[i]["#text"]);
+		}
+		return artistImages[4];
+	}
+
+
+
+
+
     //JEFF: MISC FUNCTIONS
     function getSimilarArtists(artistsArray) {
         artistsReturned = [];
@@ -119,6 +140,7 @@ function getSimilarArtistElements(artist){
             return videoids;
         };
 
+
   //  RENDER ACCORDION AS A FUNCTION 
     function renderAccordion(similarArtists){
 
@@ -130,6 +152,7 @@ function getSimilarArtistElements(artist){
 
     for (var i = 0; i < similarArtists.length; i++) {
         similarArtists[i]
+
     
 
     var newCard = $("<div>");
