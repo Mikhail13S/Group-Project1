@@ -48,6 +48,7 @@ var Artist = Class.create({
             console.log(response);
            similarArtistsNames = getSimilarArtists(response.artist.similar.artist);
            getSimilarArtistElements(similarArtistsNames[0]);
+           renderAccordion(similarArtistsNames);
         });
     });
     //JEFF: END LASTFM AJAX CALL
@@ -117,5 +118,44 @@ function getSimilarArtistElements(artist){
             console.log(videoids);
             return videoids;
         };
+
+  //  RENDER ACCORDION AS A FUNCTION 
+    function renderAccordion(similarArtists){
+
+      var newResultsDiv = $("<div>");
     
+    newResultsDiv.addClass("accordion");
+
+    // create a loop through each card 60-74 TO LOOP THROUGH EACH OF THE LINES IN FIRST DIV, THEN REPEAT THIS PROCESS FOR EACH DIV
+
+    for (var i = 0; i < similarArtists.length; i++) {
+        similarArtists[i]
+    
+
+    var newCard = $("<div>");
+    newCard.addClass("card");
+    newResultsDiv.append(newCard);
+
+    var newcardheader = $("<div>");
+    newcardheader.addClass("card-header");
+    newcardheader.attr("id","heading"+i);
+    newCard.append(newcardheader);
+
+    var h5 = $("<h5>");
+    newCard.append(h5);
+
+    var button = $("<button>");
+    button.addClass("btn btn-link");
+    button.attr("data-target", "collapse"+i)
+    h5.append(button);
+
+    var collapseOne = $("<div>");
+    collapseOne.addClass("collapseOne");
+    collapseOne.attr("id", "accordion"+i);
+    button.append(collapseOne);
+
+
+}
+    JQr("#searchResults").append(newResultsDiv);
 //JEFF: END YOUTUBE API
+
