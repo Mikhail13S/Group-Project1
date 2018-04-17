@@ -30,7 +30,7 @@ var Artist = Class.create({
 });
 //JEFF: End Prototype things
 //  JESSICA: Beginning of onclick Event
-    $(document).on('click', '#submitButton', function(){
+    JQr(document).on('click', '#submitButton', function(){
         console.log("button clicked");
         artist = JQr('#userSearch').val().trim();
         console.log(artist);
@@ -40,7 +40,7 @@ var Artist = Class.create({
             url: "http://ws.audioscrobbler.com/2.0/?",
             data: {
                 method: "artist.getinfo",
-                autocorrect: 1;
+                autocorrect: 1,
                 artist: artist,
                 api_key: lastfmAPIKey,
                 format: "json",
@@ -141,44 +141,60 @@ function getSimilarArtistElements(artist){
         };
 
 
-  //  RENDER ACCORDION AS A FUNCTION 
+  //  JOHN BASSILI START OF RENDER ACCORDION AS A FUNCTION 
     function renderAccordion(similarArtists){
 
-      var newResultsDiv = $("<div>");
+      var newResultsDiv = JQr("<div>");
     
     newResultsDiv.addClass("accordion");
 
-    // create a loop through each card 60-74 TO LOOP THROUGH EACH OF THE LINES IN FIRST DIV, THEN REPEAT THIS PROCESS FOR EACH DIV
+    // create a loop TO LOOP THROUGH EACH OF THE LINES IN FIRST DIV, THEN REPEAT THIS PROCESS FOR EACH DIV
 
     for (var i = 0; i < similarArtists.length; i++) {
         similarArtists[i]
 
     
 
-    var newCard = $("<div>");
+    var newCard = JQr("<div>");
     newCard.addClass("card");
     newResultsDiv.append(newCard);
 
-    var newcardheader = $("<div>");
+    var newcardheader = JQr("<div>");
     newcardheader.addClass("card-header");
     newcardheader.attr("id","heading"+i);
     newCard.append(newcardheader);
 
-    var h5 = $("<h5>");
-    newCard.append(h5);
+    var h5 = JQr("<h5>");
+    h5.addClass("mb-0")
+    newcardheader.append(h5);
 
-    var button = $("<button>");
+    var button = JQr("<button>");
     button.addClass("btn btn-link");
-    button.attr("data-target", "collapse"+i)
-    h5.append(button);
-
-    var collapseOne = $("<div>");
-    collapseOne.addClass("collapseOne");
-    collapseOne.attr("id", "accordion"+i);
-    button.append(collapseOne);
+    button.attr("data-toggle","collapse");
+    button.attr("data-target", "#collapse"+i);
+    button.attr("data-index", i);
+    button.text(similarArtistsNames[i]);
 
 
+        h5.append(button);
+
+    var collapseOne =JQr("<div>");
+    collapseOne.attr("id", "collapse"+i);
+    if (i===0) {
+
+    collapseOne.addClass("collapse show");
+}
+else {
+    collapseOne.addClass("collapse");
+}
+    collapseOne.attr("data-parent","accordion"+i);
+    newCard.append(collapseOne);
+
+    var newcardbody = JQr("<div>");
+    newcardbody.addClass("card-body", "img-responsive");
+    // newcardbody.attr("");
+    collapseOne.append(newcardbody);
 }
     JQr("#searchResults").append(newResultsDiv);
 //JEFF: END YOUTUBE API
-
+}
