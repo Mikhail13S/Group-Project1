@@ -58,7 +58,7 @@ JQr(document).on('click', '#submitButton', function () {
     //JESSICA: End of onclick Event
     //JEFF: LAST.FM AJAX CALL
     JQr.ajax({
-        url: "http://ws.audioscrobbler.com/2.0/?",
+        url: "https://ws.audioscrobbler.com/2.0/?",
         data: {
             method: "artist.getinfo",
             autocorrect: 1,
@@ -69,10 +69,16 @@ JQr(document).on('click', '#submitButton', function () {
         method: "GET",
     }).then(function (response) {
         console.log(response);
-
+        	  if(response.artist.similar.artist.length === 0){
+        	  	console.log("Array is undefined");
+        	renderError(JQr("#searchResults"));
+        }else{
         similarArtistsNames = getSimilarArtists(response.artist.similar.artist);
+      
         renderAccordion(similarArtistsNames);
         getSimilarArtistElements(similarArtistsNames[0], JQr('#card-body0'));
+    }
+    
     });
 
 });
@@ -264,3 +270,13 @@ JQr('#searchResults').on('click', '.recommendation-button', function () {
     console.log("index" + index);
     getSimilarArtistElements(similarArtistsNames[index], JQr('#card-body'+ index));
 });
+
+function renderError(insertHere){
+	insertHere.empty();
+	var newErrorDiv = JQr("<div>");
+	var newErrorText = JQr("<h5>");
+	newErrorText.text("No similar artists could be found. Please try a different artist.");
+	newErrorText.addClass("error-text");
+	newErrorDiv.append(newErrorText);
+	insertHere.append(newErrorDiv);
+}
